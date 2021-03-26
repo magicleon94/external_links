@@ -13,7 +13,7 @@ class ExternalLinksListener extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ExternalLinksBloc, ExternalLinksState>(
-      listenWhen: (previos, current) => current is ExternalLinkAvailable,
+      listenWhen: (previous, current) => current is ExternalLinkAvailable,
       listener: (context, state) {
         if (state is ExternalLinkAvailable) {
           BlocProvider.of<ExternalLinksBloc>(context).add(
