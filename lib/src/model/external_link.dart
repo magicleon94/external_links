@@ -7,19 +7,19 @@ typedef ExternalLinkMapFactory = ExternalLink? Function(Map<String, dynamic>);
 
 ///Common interface for messages coming from push notifications or deep/universal links
 abstract class ExternalLink extends Equatable {
-  ///[title] is the title of the push notification
+  ///[title] of the link, usually associated to the title of a push notification
   String? get title;
 
-  ///[content] is the content message of the push notification
+  ///[content] of the link, usually associated to the content of a push notification
   String? get content;
 
-  ///[args] are the arguments of the push notification
+  ///[args] of the link, usually associated to the arguments of a push notification
   Map<String, dynamic> get args;
 
-  ///[uri] of the deep link
+  ///[uri], of the link, usually associated to the conuri tent of a deep link
   Uri? get uri;
 
-  ///check is being logged in is required to process this link
+  ///[authenticationRequired] tells if is being logged in is required to process this link
   bool get authenticationRequired;
 
   ExternalLink({Uri? uri, Map<String, dynamic>? json});
@@ -27,10 +27,10 @@ abstract class ExternalLink extends Equatable {
   ///[getHandler] returns the handler for the link. If no operation handler is needed, return an instance of `EmptyHandler`.
   ExternalLinkHandler getHandler([BuildContext? context]);
 
-  ///[mapFactory] is user to create links from a `Map<String,dynamic>`. Assign it as soon as possible
+  ///[mapFactory] is used to create links from a `Map<String,dynamic>`
   static ExternalLinkMapFactory mapFactory = (_) => null;
 
-  ///[uriFactory] is user to create links from an `Uri`. Assign it as soon as possible
+  ///[uriFactory] is used to create links from an `Uri`
   static ExternalLinkUriFactory uriFactory = (_) => null;
 
   @override

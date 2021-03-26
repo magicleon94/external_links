@@ -12,17 +12,21 @@ import 'package:meta/meta.dart';
 part 'external_links_event.dart';
 part 'external_links_state.dart';
 
+///The bloc that manages the links queue
 class ExternalLinksBloc extends Bloc<ExternalLinksEvent, ExternalLinksState> {
   final _providersSubscriptions = <StreamSubscription>[];
 
   final _queue = ListQueue<ExternalLink>();
 
+  ///Returns `true` if there's a link to process
   bool get hasLinkToProcess => state.runtimeType == ExternalLinkAvailable;
+
+  ///Returns `true` if the bloc is processing a link right now
   bool get isProcessing => state.runtimeType == ExternalLinkProcessing;
 
-  ExternalLinksBloc(
-      {List<ExternalLinksAdapter> adapters = const <ExternalLinksAdapter>[]})
-      : super(ExternalLinksInitial()) {
+  ExternalLinksBloc({
+    List<ExternalLinksAdapter> adapters = const <ExternalLinksAdapter>[],
+  }) : super(ExternalLinksInitial()) {
     adapters.forEach(
       (provider) {
         final subscription = provider.stream.listen(_enqueueLink);
@@ -33,7 +37,7 @@ class ExternalLinksBloc extends Bloc<ExternalLinksEvent, ExternalLinksState> {
 
   void _enqueueLink(ExternalLink? link) {
     if (link != null) {
-      add(EnqueueLink(link));
+      add(_EnqueueLink(link));
     }
   }
 
@@ -58,7 +62,7 @@ class ExternalLinksBloc extends Bloc<ExternalLinksEvent, ExternalLinksState> {
 
   @override
   Stream<ExternalLinksState> mapEventToState(ExternalLinksEvent event) async* {
-    if (event is EnqueueLink) {
+    if (event is _EnqueueLink) {
       _queue.addFirst(event.link);
       yield ExternalLinkAvailable();
     } else if (event is ProcessLink) {

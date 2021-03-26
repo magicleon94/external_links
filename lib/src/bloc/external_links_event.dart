@@ -6,12 +6,14 @@ abstract class ExternalLinksEvent extends Equatable {
   List<Object> get props => [runtimeType];
 }
 
-class EnqueueLink extends ExternalLinksEvent {
+///Insert a link into the queue
+class _EnqueueLink extends ExternalLinksEvent {
   final ExternalLink link;
 
-  EnqueueLink(this.link);
+  _EnqueueLink(this.link);
 }
 
+///Process a link specifying a handler or a function
 class ProcessLink extends ExternalLinksEvent {
   final ExternalLinkHandler? handler;
   final Future<void> Function(ExternalLink link)? processFunction;

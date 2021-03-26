@@ -2,6 +2,8 @@ import 'package:external_links/src/bloc/external_links_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+///A convenience class that listens to the `ExternalLink`s queue and processes them using their handler
+///It is optional to use this
 class ExternalLinksListener extends StatelessWidget {
   final Widget child;
   const ExternalLinksListener({
