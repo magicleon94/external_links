@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:collection';
 import 'dart:math';
 
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:external_links/src/adapters/external_links_adapter.dart';
 import 'package:external_links/src/model/external_link.dart';
 import 'package:external_links/src/model/external_link_handler.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
 part 'external_links_event.dart';
