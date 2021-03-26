@@ -8,7 +8,7 @@ The object that represents the link information. It consists of the following pr
 - `title` of the link, usually associated to the title of a push notification
 - `content` of the link, usually associated to the content of a push notification
 - `args` of the link, usually associated to the arguments of a push notification
-- `uri`, of the link, usually associated to the conuri tent of a deep link
+- `uri` of the link, usually associated to the uri of a deep link
 - `authenticationRequired` tells if is being logged in is required to process this link
 - `getHandler` returns the handler for the link. If no operation handler is needed, return an instance of `EmptyHandler`.
 - `mapFactory` is used to create links from a `Map<String,dynamic>`. Assign it as soon as possible

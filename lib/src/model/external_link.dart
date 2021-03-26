@@ -16,7 +16,7 @@ abstract class ExternalLink extends Equatable {
   ///[args] of the link, usually associated to the arguments of a push notification
   Map<String, dynamic> get args;
 
-  ///[uri], of the link, usually associated to the conuri tent of a deep link
+  ///[uri] of the link, usually associated to the uri of a deep link
   Uri? get uri;
 
   ///[authenticationRequired] tells if is being logged in is required to process this link
