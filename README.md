@@ -123,7 +123,20 @@ The Bloc takes in a `ProcessLink` event with the informations needed to process 
 
 - `NoExternalLinks`: Triggered when the links queue is empty
 
+Example:
+```dart
+BlocProvider<ExternalLinksBloc>(
+    create: (_)=>ExternalLinksBloc(
+        adapters: [
+            DeepLinkAdapter()..init(), //an adapter for deep links
+            CloudMessagingAdapter()..init(), //an adapter for push notifications
+            //any other adapter
+        ],
+    ),
+    child: //child here. Usually the MaterialApp
+)
 
+```
 ### ExternalLinksListener
 This is just a convenience class that listens to the `ExternalLink`s queue and processes them using their handler.
 It is optional to use this and you can listen directly to the `ExternalLinksBloc` instead and decide what to do upon receiving links.

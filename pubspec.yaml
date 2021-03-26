@@ -1,6 +1,6 @@
 name: external_links
 description: A package that provides abstraction to handle external links to your apps with an unified interface.
-version: 1.0.0+2
+version: 1.0.0+3
 homepage: https://github.com/magicleon94/external_links
 
 environment:

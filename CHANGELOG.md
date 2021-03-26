@@ -1,3 +1,5 @@
+## 1.0.0+3
+Improved documentation
 ## 1.0.0+2
 Improved documentation
 ## 1.0.0+1
