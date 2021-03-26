@@ -66,7 +66,7 @@ class DummyLinkHandler extends ExternalLinkContextHandler {
 ```
 
 ### ExternalLinksAdapter
-The adapter that processes information into `ExternalLink`s, which will be automatically enqueues by the `ExternalLinksBloc` the adapter is passed to.
+The adapter that processes information into `ExternalLink`s, which will be automatically enqueued by the `ExternalLinksBloc` the adapter is passed to.
 It can be anything you need, for example you can use the following adapter if you're hooking your app to [Firebase dynamic links](https://pub.dev/packages/firebase_dynamic_links/versions/2.0.0-dev.0):
 
 ```dart
