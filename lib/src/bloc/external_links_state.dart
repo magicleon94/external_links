@@ -1,13 +1,7 @@
 part of 'external_links_bloc.dart';
 
 @immutable
-abstract class ExternalLinksState extends Equatable {
-  @override
-  List<Object> get props => [
-        //every state is different
-        Random().nextInt(4294967296), //2^32
-      ];
-}
+abstract class ExternalLinksState {}
 
 ///The initial state of the Bloc
 class ExternalLinksInitial extends ExternalLinksState {}

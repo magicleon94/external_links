@@ -10,4 +10,10 @@ abstract class ExternalLinksAdapter extends Cubit<ExternalLink?> {
   void dispose() {
     close();
   }
+
+  @override
+  void emit(ExternalLink? state) {
+    super.emit(null); //clear the "buffer"
+    super.emit(state);
+  }
 }

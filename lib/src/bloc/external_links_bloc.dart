@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:math';
 
 import 'package:equatable/equatable.dart';
 import 'package:external_links/src/adapters/external_links_adapter.dart';
