@@ -1,3 +1,5 @@
+## 2.0.0
+Version bump
 ## 1.1.0
 Fixed equality issues
 ## 1.0.0+6

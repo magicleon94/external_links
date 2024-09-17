@@ -182,7 +182,7 @@ By default those are functions that return `null`. If you want to use them, just
 These are totally optional since you are free to generate `ExternalLink`s in any way you like within an adapter, but they might be useful if you want somepalce centralized.
 
 ## Considerations
-This might look overkill ad first, but in my experience a solid architecture that allows to process external links to an app in a simple way can be a life saver on the long run.
+This might look overkill at first, but in my experience a solid architecture that allows to process external links to an app in a simple way can be a life saver on the long run.
 
 Just set how many adapters you like to receive links information, just define how many link types you need. Despite the name `Link` you can actually use this as an inside notification system in your app too, or hooking an adapter to a websocket or whatever.
 
