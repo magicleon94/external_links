@@ -26,7 +26,7 @@ class DummyLink extends ExternalLink {
   String get content => 'Dummy content! #${Random().nextInt(100000)}';
 
   @override
-  ExternalLinkHandler getHandler([BuildContext context]) {
+  ExternalLinkHandler getHandler([BuildContext? context]) {
     if (context != null) {
       return DummyLinkHandler(context);
     } else {
@@ -38,7 +38,7 @@ class DummyLink extends ExternalLink {
   String get title => 'Dummy title!';
 
   @override
-  Uri get uri => null;
+  Uri? get uri => null;
 }
 
 class DummierLink extends ExternalLink {
@@ -52,7 +52,7 @@ class DummierLink extends ExternalLink {
   String get content => 'Dummier content! #${Random().nextInt(100000)}';
 
   @override
-  ExternalLinkHandler getHandler([BuildContext context]) {
+  ExternalLinkHandler getHandler([BuildContext? context]) {
     if (context != null) {
       return DummyLinkHandler(context);
     } else {
@@ -64,7 +64,7 @@ class DummierLink extends ExternalLink {
   String get title => 'Dummier title!';
 
   @override
-  Uri get uri => null;
+  Uri? get uri => null;
 }
 
 class DummyLinkHandler extends ExternalLinkContextHandler {

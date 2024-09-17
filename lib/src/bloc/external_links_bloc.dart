@@ -32,6 +32,21 @@ class ExternalLinksBloc extends Bloc<ExternalLinksEvent, ExternalLinksState> {
         _providersSubscriptions.add(subscription);
       },
     );
+
+    on<_EnqueueLink>((event, emit) {
+      _queue.addFirst(event.link);
+      emit(ExternalLinkAvailable());
+    });
+
+    on<ProcessLink>((event, emit) async {
+      emit(ExternalLinkProcessing());
+      await _processLink(event);
+      if (_queue.isEmpty) {
+        emit(NoExternalLinks());
+      } else {
+        emit(ExternalLinkAvailable());
+      }
+    });
   }
 
   void _enqueueLink(ExternalLink? link) {
@@ -57,21 +72,5 @@ class ExternalLinksBloc extends Bloc<ExternalLinksEvent, ExternalLinksState> {
       },
     );
     return super.close();
-  }
-
-  @override
-  Stream<ExternalLinksState> mapEventToState(ExternalLinksEvent event) async* {
-    if (event is _EnqueueLink) {
-      _queue.addFirst(event.link);
-      yield ExternalLinkAvailable();
-    } else if (event is ProcessLink) {
-      yield ExternalLinkProcessing();
-      await _processLink(event);
-      if (_queue.isEmpty) {
-        yield NoExternalLinks();
-      } else {
-        yield ExternalLinkAvailable();
-      }
-    }
   }
 }
